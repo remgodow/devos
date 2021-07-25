@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   users.users.dev = {
     uid = 1000;
-    description = "default";
     isNormalUser = true;
     password = "nixos";
     extraGroups = [
@@ -11,7 +10,7 @@
     ];
   };
 
-  home-manager.users.dev = { suites, pkgs, ... }: {
+  home-manager.users.dev = { suites, ... }: {
     imports = suites.base;
   };
 }

@@ -12,7 +12,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "boot.shell_on_fail" ];
 
+
   virtualisation.hypervGuest.enable = true;
+  virtualisation.hypervGuest.videoMode = "2560x1440";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
