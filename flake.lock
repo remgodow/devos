@@ -3,7 +3,7 @@
     "agenix": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "stable"
         ]
       },
       "locked": {
@@ -51,7 +51,7 @@
     "darwin": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "stable"
         ]
       },
       "locked": {
@@ -177,7 +177,7 @@
     "home": {
       "inputs": {
         "nixpkgs": [
-          "nixos"
+          "stable"
         ]
       },
       "locked": {
@@ -211,7 +211,7 @@
     "naersk": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "stable"
         ]
       },
       "locked": {
@@ -232,7 +232,7 @@
     "naersk_2": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "stable"
         ]
       },
       "locked": {
@@ -342,7 +342,7 @@
     "pkgs": {
       "inputs": {
         "nixpkgs": [
-          "nixos"
+          "stable"
         ]
       },
       "locked": {
@@ -383,7 +383,23 @@
         "nixos": "nixos",
         "nixos-hardware": "nixos-hardware",
         "nur": "nur",
-        "pkgs": "pkgs"
+        "pkgs": "pkgs",
+        "stable": "stable"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1627107260,
+        "narHash": "sha256-CwvSwz3kvpp7uEFyOj2Dq6bdtY6P2N0Bzd7ZVgsIICw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "537678cb1ead06fca831077c3b193566cbc3f406",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-21.05",
+        "type": "indirect"
       }
     },
     "utils": {
