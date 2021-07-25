@@ -6,7 +6,7 @@
       nixos.url = "nixpkgs/nixos-unstable";
       latest.url = "nixpkgs";
       stable.url = "nixpkgs/nixos-21.05";
-      digga.url = "github:divnix/digga/master";
+      digga.url = "github:divnix/digga/main";
 
       ci-agent = {
         url = "github:hercules-ci/hercules-ci-agent";
