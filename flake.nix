@@ -16,7 +16,7 @@
       };
       darwin.url = "github:LnL7/nix-darwin";
       darwin.inputs.nixpkgs.follows = "stable";
-      home.url = "github:nix-community/home-manager";
+      home.url = "github:nix-community/home-manager/release-21.05";
       home.inputs.nixpkgs.follows = "stable";
       naersk.url = "github:nmattia/naersk";
       naersk.inputs.nixpkgs.follows = "stable";
