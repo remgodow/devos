@@ -7,7 +7,7 @@
       nixos.url = "nixpkgs/nixos-unstable";
       latest.url = "nixpkgs";
       stable.url = "nixpkgs/nixos-21.05";
-      digga.url = "github:divnix/digga/main";
+      digga.url = "github:divnix/digga/v0.2.0";
       digga.inputs.nixpkgs.follows = "stable";
 
       ci-agent = {
