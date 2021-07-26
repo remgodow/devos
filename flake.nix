@@ -100,7 +100,9 @@
             users = digga.lib.importers.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base = [ core kde users.dev users.root desktop ];
+            base = [ core users.dev users.root ];
+            desktop = [ desktop kde ];
+            development = [ virtualisation ];
           };
         };
       };
@@ -112,7 +114,7 @@
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = with profiles; rec {
             base = [ direnv git ];
-            development = [ containers ];
+            development = [ containers vscodium ];
           };
         };
       };
