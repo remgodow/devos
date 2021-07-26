@@ -58,5 +58,7 @@
   services.xserver.layout = "pl";
   services.xserver.xkbOptions = "eurosign:e";
 
+  services.xrdp.enable = true;
+
   system.stateVersion = "21.05";
 }
