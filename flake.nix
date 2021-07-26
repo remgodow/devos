@@ -101,7 +101,7 @@
           };
           suites = with profiles; rec {
             base = [ core users.dev users.root ];
-            desktop = [ desktop kde ];
+            gui = [ desktop kde ];
             development = [ virtualisation ];
           };
         };
