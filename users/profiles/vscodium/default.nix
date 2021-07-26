@@ -15,6 +15,10 @@
     }
   '';
 
+  home.packages = with pkgs; [
+    rnix-lsp
+  ];
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
