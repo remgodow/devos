@@ -2,7 +2,7 @@
 {
   virtualisation = {
     docker = {
-      enabled = true;
+      enable = true;
     };
   };
 
