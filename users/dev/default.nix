@@ -11,6 +11,6 @@
   };
 
   home-manager.users.dev = { suites, ... }: {
-    imports = suites.base;
+    imports = suites.base ++ suites.development;
   };
 }
