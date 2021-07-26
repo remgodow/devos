@@ -24,7 +24,6 @@
         eamodio.gitlens
         jnoortheen.nix-ide
         redhat.vscode-yaml
-        shardulm94.trailing-spaces
       ]
     ) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
