@@ -3,10 +3,10 @@
   virtualisation = {
     docker = {
       enabled = true;
-    }
-      };
+    };
+  };
 
-    environment.systemPackages = with pkgs; [
-      docker_compose
-    ];
-  }
+  environment.systemPackages = with pkgs; [
+    docker_compose
+  ];
+}
