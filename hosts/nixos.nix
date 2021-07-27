@@ -22,7 +22,6 @@
   networking.useDHCP = false;
   networking.interfaces.eth0.useDHCP = true;
 
-
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/7eed9ad2-cff5-4fff-824f-d0623683ee5a";
@@ -59,6 +58,9 @@
   services.xserver.xkbOptions = "eurosign:e";
 
   services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+  networking.firewall.allowedUDPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   system.stateVersion = "21.05";
 }

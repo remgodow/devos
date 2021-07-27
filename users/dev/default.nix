@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   users.users.dev = {
     uid = 1000;
@@ -8,6 +8,7 @@
       "wheel"
       "docker"
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager.users.dev = { suites, ... }: {
