@@ -3,7 +3,6 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
   };
 
   programs.exa = {
@@ -18,6 +17,10 @@
   programs.zoxide = {
     enable = true;
     options = [ "--hook pwd" ];
+  };
+
+  programs.starship = {
+    enable = true;
   };
 
 }

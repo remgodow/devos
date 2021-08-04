@@ -1,4 +1,4 @@
-{ suites, lib, ... }:
+{ suites, lib, pkgs, ... }:
 {
   ### root password is empty by default ###
   imports = suites.base ++ suites.gui ++ suites.development;
@@ -6,7 +6,7 @@
   boot.initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -52,6 +52,7 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
 
   # Configure keymap in X11
   services.xserver.layout = "pl";
