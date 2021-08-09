@@ -1,7 +1,7 @@
 { ... }: {
 
-  home.file."startwm.sh" = {
-    source = "./config/startwm.sh";
+  home.file."./startwm.sh" = {
+    source = ./config/startwm.sh;
   };
 
 }

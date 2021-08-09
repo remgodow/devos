@@ -9,5 +9,14 @@
   # Additional KDE software
   environment.systemPackages = with pkgs; [
     kate
+    kwallet-pam
+    xorg.xhost
   ];
+
+  systemd.services.xhoster = {
+    script = ''
+      ${pkgs.xorg.xhost}/bin/xhost +local:
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
 }
