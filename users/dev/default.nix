@@ -7,6 +7,7 @@
     extraGroups = [
       "wheel"
       "docker"
+      "wireshark"
     ];
     shell = pkgs.zsh;
   };

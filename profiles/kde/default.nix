@@ -13,10 +13,13 @@
     xorg.xhost
   ];
 
-  systemd.services.xhoster = {
-    script = ''
-      ${pkgs.xorg.xhost}/bin/xhost +local:
-    '';
-    wantedBy = [ "multi-user.target" ];
-  };
+  services.xserver.displayManager.setupCommands = "${pkgs.xorg.xhost}/bin/xhost +local:";
+
+  # systemd.services.xhoster = {
+  #   script = ''
+  #     export DISPLAY=:0
+  #     ${pkgs.xorg.xhost}/bin/xhost +local:
+  #   '';
+  #   wantedBy = [ "multi-user.target" ];
+  # };
 }

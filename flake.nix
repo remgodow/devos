@@ -102,7 +102,7 @@
           suites = with profiles; rec {
             base = [ core users.dev users.root ];
             gui = [ desktop kde ];
-            development = [ virtualisation ];
+            development = [ virtualisation networking ];
           };
         };
       };
@@ -114,7 +114,7 @@
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = with profiles; rec {
             base = [ direnv git ];
-            development = [ vscodium shell xrdp networking ];
+            development = [ vscodium shell xrdp ];
           };
         };
       };
