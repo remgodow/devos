@@ -114,7 +114,7 @@
           profiles = digga.lib.importers.rakeLeaves ./users/profiles;
           suites = with profiles; rec {
             base = [ direnv git ];
-            development = [ vscodium shell xrdp ];
+            development = [ vscodium shell xrdp jetbrains ];
           };
         };
       };
