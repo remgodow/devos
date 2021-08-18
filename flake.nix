@@ -93,7 +93,8 @@
 
         imports = [ (digga.lib.importers.hosts ./hosts) ];
         hosts = {
-          nixos = { };
+          nixos-hyperv = { };
+          nixos-bm = { };
         };
         importables = rec {
           profiles = digga.lib.importers.rakeLeaves ./profiles // {
@@ -101,8 +102,6 @@
           };
           suites = with profiles; rec {
             base = [ core users.dev users.root ];
-            gui = [ desktop kde ];
-            development = [ virtualisation networking ];
           };
         };
       };
