@@ -4,7 +4,7 @@
     uid = 1000;
     isNormalUser = true;
     password = "nixos";
-    homeDirectory = "/home/dev";
+    home = "/home/dev";
     extraGroups = [
       "wheel"
       "docker"
