@@ -101,7 +101,9 @@
             users = digga.lib.importers.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base = [ core users.dev users.root ];
+            base = [ core users.root ];
+            development = [ users.dev ];
+            daily = [ users.remo ];
           };
         };
       };

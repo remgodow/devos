@@ -1,8 +1,9 @@
  { pkgs, ... }:
 {
   users.users.remo = {
-    uid = 1000;
+    uid = 1001;
     isNormalUser = true;
+    userDirectory = "/home/remo";
     extraGroups = [
       "wheel"
       "docker"
@@ -12,5 +13,8 @@
   };
 
   home-manager.users.dev = { suites, ... }: {
-    imports = suites.base;
-};
+    imports = suites.base ++
+    ../profiles/gaming
+    ;
+  };
+}

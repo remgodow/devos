@@ -1,7 +1,7 @@
 { suites, lib, pkgs, ... }:
 {
   ### root password is empty by default ###
-  imports = suites.base ++ suites.gui ++ suites.development;
+  imports = suites.base;
 
 #   boot.initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];

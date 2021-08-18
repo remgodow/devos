@@ -2,9 +2,7 @@
 
 {
 
-  imports = suites.base ++ [
-    ../profiles/graphical
-    ../profiles/graphical/x11Gestures.nix
+  imports = suites.base ++ suites.daily ++ suites.development ++ [
 
     ../profiles/hardware/amd_cpu.nix
     ../profiles/hardware/nvidia_gpu.nix
@@ -12,6 +10,7 @@
 
     ../profiles/desktop/plasma.nix
     ../profiles/desktop/pipewire.nix
+    ../profiles/desktop/apps.nix
   ];
 
   # some more hardware settings
@@ -21,6 +20,8 @@
 
   # fast shutdown is more important than gracefully shuting down
   systemd.extraConfig = "DefaultTimeoutStopSec=5s";
+
+  networking.networkmanager.enable = true;
 
   boot = {
     tmpOnTmpfs = true;
