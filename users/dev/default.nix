@@ -14,6 +14,8 @@
   };
 
   home-manager.users.dev = { suites, ... }: {
-    imports = suites.base ++ suites.development;
+    imports = suites.base ++ suites.development ++ [
+      ../profiles/communication/slack
+    ];
   };
 }
