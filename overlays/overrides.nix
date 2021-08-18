@@ -12,6 +12,7 @@ channels: final: prev: {
     nixpkgs-fmt
     qutebrowser
     signal-desktop
+    freetube
     starship;
 
 

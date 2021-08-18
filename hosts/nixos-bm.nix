@@ -14,6 +14,7 @@
     ../profiles/desktop/apps.nix
 
     ../profiles/virtualisation/docker.nix
+    ../profiles/virtualisation/qemu.nix
   ];
 
   # some more hardware settings
