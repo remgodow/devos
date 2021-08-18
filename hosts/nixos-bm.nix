@@ -7,10 +7,13 @@
     ../profiles/hardware/amd_cpu.nix
     ../profiles/hardware/nvidia_gpu.nix
     ../profiles/hardware/default_partitions.nix
+    ../profiles/hardware/bluetooth.nix
 
     ../profiles/desktop/plasma.nix
     ../profiles/desktop/pipewire.nix
     ../profiles/desktop/apps.nix
+
+    ../profiles/virtualisation/docker.nix
   ];
 
   # some more hardware settings
@@ -31,7 +34,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-
+    supportedFilesystems = [ "ntfs" ];
   };
 
   # make more out of the ram

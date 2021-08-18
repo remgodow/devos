@@ -18,7 +18,9 @@
     imports = suites.base ++ [
       ../profiles/gaming
       ../profiles/shell
-      ../profiles/communication/thunderbird
+      ../profiles/communication/thunderbird.nix
+      ../profiles/keepassxc
+      ../profiles/entertainment
     ];
   };
 }
