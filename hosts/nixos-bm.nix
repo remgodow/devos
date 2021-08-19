@@ -8,6 +8,7 @@
     ../profiles/hardware/nvidia_gpu.nix
     ../profiles/hardware/default_partitions.nix
     ../profiles/hardware/bluetooth.nix
+    ../profiles/hardware/webcams.nix
 
     ../profiles/locale/pl.nix
 
