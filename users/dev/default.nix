@@ -16,6 +16,7 @@
   home-manager.users.dev = { suites, ... }: {
     imports = suites.base ++ suites.development ++ [
       ../profiles/communication/slack.nix
+      ../profiles/keepassxc
     ];
   };
 }

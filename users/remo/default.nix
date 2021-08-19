@@ -19,6 +19,7 @@
       ../profiles/gaming
       ../profiles/shell
       ../profiles/communication/thunderbird.nix
+      ../profiles/communication/protonmail.nix
       ../profiles/keepassxc
       ../profiles/entertainment
     ];

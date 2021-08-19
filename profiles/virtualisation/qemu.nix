@@ -1,8 +1,9 @@
 { config, pkgs, ... }: {
 
   virtualisation.libvirtd = {
-    qemuPackage = pkgs.qemu_kvm
-      qemuOvmf = true;
+    enable = true;
+    qemuPackage = pkgs.qemu_kvm;
+    qemuOvmf = true;
   };
 
   environment.systemPackages = with pkgs; [

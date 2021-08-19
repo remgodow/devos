@@ -9,6 +9,8 @@
     ../profiles/hardware/default_partitions.nix
     ../profiles/hardware/bluetooth.nix
 
+    ../profiles/locale/pl.nix
+
     ../profiles/desktop/plasma.nix
     ../profiles/desktop/pipewire.nix
     ../profiles/desktop/apps.nix
