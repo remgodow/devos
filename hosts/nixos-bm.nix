@@ -10,6 +10,7 @@
     ../profiles/hardware/bluetooth.nix
     ../profiles/hardware/webcams.nix
     ../profiles/hardware/smartphone.nix
+    ../profiles/hardware/printers.nix
 
     ../profiles/locale/pl.nix
 
@@ -27,6 +28,26 @@
       experimental-features = nix-command flakes
     '';
   };
+
+  fileSystems."/mnt/Gry" =
+    {
+      device = "/dev/disk/by-label/Gry";
+      fsType = "ntfs";
+      options = [
+        "noauto"
+        "x-systemd.automount"
+      ];
+    };
+
+  fileSystems."/mnt/Filmy" =
+    {
+      device = "/dev/disk/by-label/Filmy";
+      fsType = "ntfs";
+      options = [
+        "noauto"
+        "x-systemd.automount"
+      ];
+    };
 
   hardware.nvidia.vgpu.enable = true; # Enable NVIDIA KVM vGPU + GRID driver
   hardware.nvidia.vgpu.unlock.enable = true; # Unlock vGPU functionality on consumer cards using DualCoder/vgpu_unlock project
