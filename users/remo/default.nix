@@ -10,9 +10,14 @@
       "wheel"
       "docker"
       "networkmanager"
+      "libvirtd"
+      "qemu-libvirtd"
+      "adbusers"
     ];
     shell = pkgs.zsh;
   };
+
+  programs.gnupg.agent.enable = true;
 
   home-manager.users.remo = { suites, ... }: {
     imports = suites.base ++ [
@@ -22,6 +27,7 @@
       ../profiles/communication/protonmail.nix
       ../profiles/keepassxc
       ../profiles/entertainment
+      ../profiles/office/libreoffice.nix
     ];
   };
 }

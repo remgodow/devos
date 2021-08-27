@@ -3,19 +3,12 @@
 
   inputs =
     {
-      nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
-      nixos.url = "nixpkgs/nixos-unstable";
+      unstable.url = "nixpkgs/nixos-unstable";
       latest.url = "nixpkgs";
       stable.url = "nixpkgs/nixos-21.05";
+
       digga.url = "github:divnix/digga/v0.2.0";
       digga.inputs.nixpkgs.follows = "stable";
-
-      ci-agent = {
-        url = "github:hercules-ci/hercules-ci-agent";
-        inputs = { nix-darwin.follows = "darwin"; nixos-20_09.follows = "nixos"; nixos-unstable.follows = "latest"; };
-      };
-      darwin.url = "github:LnL7/nix-darwin";
-      darwin.inputs.nixpkgs.follows = "stable";
       home.url = "github:nix-community/home-manager/release-21.05";
       home.inputs.nixpkgs.follows = "stable";
       naersk.url = "github:nmattia/naersk";
@@ -26,18 +19,23 @@
 
       pkgs.url = "path:./pkgs";
       pkgs.inputs.nixpkgs.follows = "stable";
+
+      nvidiavgpu.url = "github:remgodow/nixos-nvidia-vgpu/5.10-460.32";
+
     };
 
   outputs =
     { self
     , pkgs
     , digga
-    , nixos
-    , ci-agent
     , home
     , nixos-hardware
     , nur
     , agenix
+    , stable
+    , unstable
+    , latest
+    , nvidiavgpu
     , ...
     } @ inputs:
     digga.lib.mkFlake {
@@ -46,15 +44,7 @@
       channelsConfig = { allowUnfree = true; };
 
       channels = {
-        nixos = {
-          imports = [ (digga.lib.importers.overlays ./overlays) ];
-          overlays = [
-            ./pkgs/default.nix
-            pkgs.overlay # for `srcs`
-            nur.overlay
-            agenix.overlay
-          ];
-        };
+        unstable = { };
         latest = { };
         stable = {
           imports = [ (digga.lib.importers.overlays ./overlays) ];
@@ -67,7 +57,7 @@
         };
       };
 
-      lib = import ./lib { lib = digga.lib // nixos.lib; };
+      lib = import ./lib { lib = digga.lib // stable.lib; };
 
       sharedOverlays = [
         (final: prev: {
@@ -84,10 +74,10 @@
           modules = ./modules/module-list.nix;
           externalModules = [
             { _module.args.ourLib = self.lib; }
-            ci-agent.nixosModules.agent-profile
             home.nixosModules.home-manager
             agenix.nixosModules.age
             ./modules/customBuilds.nix
+            nvidiavgpu.nixosModules.nvidia-vgpu
           ];
         };
 

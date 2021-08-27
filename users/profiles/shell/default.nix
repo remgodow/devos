@@ -23,4 +23,8 @@
     enable = true;
   };
 
+  home.packages = with pkgs; [
+    wezterm
+  ];
+
 }

@@ -13,8 +13,12 @@ channels: final: prev: {
     qutebrowser
     signal-desktop
     freetube
+    lutris
     starship;
 
+  inherit (channels.unstable)
+    electron-mail
+    looking-glass-client;
 
   haskellPackages = prev.haskellPackages.override {
     overrides = hfinal: hprev:

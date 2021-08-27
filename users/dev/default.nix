@@ -18,5 +18,9 @@
       ../profiles/communication/slack.nix
       ../profiles/keepassxc
     ];
+
+    home.packages = with pkgs; [
+      ungoogled-chromium
+    ];
   };
 }

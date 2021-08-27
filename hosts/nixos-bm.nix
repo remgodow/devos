@@ -9,6 +9,7 @@
     ../profiles/hardware/default_partitions.nix
     ../profiles/hardware/bluetooth.nix
     ../profiles/hardware/webcams.nix
+    ../profiles/hardware/smartphone.nix
 
     ../profiles/locale/pl.nix
 
@@ -19,6 +20,16 @@
     ../profiles/virtualisation/docker.nix
     ../profiles/virtualisation/qemu.nix
   ];
+
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  hardware.nvidia.vgpu.enable = true; # Enable NVIDIA KVM vGPU + GRID driver
+  hardware.nvidia.vgpu.unlock.enable = true; # Unlock vGPU functionality on consumer cards using DualCoder/vgpu_unlock project
 
   # some more hardware settings
   nix.maxJobs = lib.mkDefault 16;

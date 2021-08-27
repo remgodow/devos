@@ -1,7 +1,8 @@
 { config, pkgs, ... }: {
 
   home.packages = with pkgs; [
-    protonmail-bridge
+    libsecret
+    electron-mail
   ];
 
 }
