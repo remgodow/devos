@@ -31,6 +31,9 @@ in
       fd
       git
       gotop
+      bottom
+      gptfdisk
+      iputils
       jq
       nmap
       ripgrep
@@ -90,7 +93,7 @@ in
         se = ifSudo "sudoedit";
 
         # top
-        top = "gotop";
+        top = "btm";
 
         # systemd
         ctl = "systemctl";
