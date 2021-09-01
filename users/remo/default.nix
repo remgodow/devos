@@ -17,8 +17,6 @@
     shell = pkgs.zsh;
   };
 
-  programs.gnupg.agent.enable = true;
-
   home-manager.users.remo = { suites, ... }: {
     imports = suites.base ++ [
       ../profiles/gaming

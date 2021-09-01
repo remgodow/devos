@@ -1,9 +1,13 @@
+{ config, pkgs, ... }:
 {
   programs.git = {
     enable = true;
 
     extraConfig = {
       pull.rebase = false;
+      merge.tool = "kdiff3";
+      mergetool.kdiff3.path = "${pkgs.kdiff3}/bin/kdiff3";
+      difftool.prompt = false;
     };
 
     aliases = {

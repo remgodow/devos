@@ -12,6 +12,12 @@
     kate
     kwallet-pam
     okular
+    kde-gtk-config
+    ark
+    gwenview
+    kdiff3
   ];
+
+  programs.dconf.enable = true;
 
 }

@@ -5,7 +5,6 @@ channels: final: prev: {
   inherit (channels.latest)
     cachix
     dhall
-    discord
     element-desktop
     rage
     nixpkgs-fmt
@@ -13,9 +12,7 @@ channels: final: prev: {
     signal-desktop
     freetube
     lutris
-    starship;
-
-  inherit (channels.unstable)
+    starship
     electron-mail
     looking-glass-client;
 

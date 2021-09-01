@@ -40,6 +40,7 @@ in
       skim
       tealdeer
       whois
+      file
     ];
 
     shellInit = ''

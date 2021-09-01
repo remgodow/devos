@@ -29,6 +29,8 @@
     '';
   };
 
+  home-manager.useGlobalPkgs = true;
+
   fileSystems."/mnt/Gry" =
     {
       device = "/dev/disk/by-label/Gry";

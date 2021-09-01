@@ -32,9 +32,14 @@
       agenix.url = "github:ryantm/agenix";
       agenix.inputs.nixpkgs.follows = "latest";
 
+      flake-compat = {
+        url = "github:edolstra/flake-compat";
+        flake = false;
+      };
+
       nvfetcher.url = "github:berberman/nvfetcher";
       nvfetcher.inputs.nixpkgs.follows = "latest";
-      #nvfetcher.inputs.flake-compat.follows = "digga/deploy/flake-compat";
+      nvfetcher.inputs.flake-compat.follows = "flake-compat";
       nvfetcher.inputs.flake-utils.follows = "digga/flake-utils-plus/flake-utils";
 
       naersk.url = "github:nmattia/naersk";
@@ -83,7 +88,7 @@
               nur.overlay
               agenix.overlay
               nvfetcher.overlay
-              deploy.overlay
+              #deploy.overlay
               ./pkgs/default.nix
             ];
           };
@@ -101,47 +106,47 @@
           })
         ];
 
-      nixos = {
-        hostDefaults = {
-          system = "x86_64-linux";
-          channelName = "stable";
-          imports = [ (digga.lib.importModules ./modules) ];
-          externalModules = [
+        nixos = {
+          hostDefaults = {
+            system = "x86_64-linux";
+            channelName = "nixos";
+            imports = [ (digga.lib.importModules ./modules) ];
+            externalModules = [
               { lib.our = self.lib; }
               digga.nixosModules.bootstrapIso
               digga.nixosModules.nixConfig
               home.nixosModules.home-manager
               agenix.nixosModules.age
               bud.nixosModules.bud
-            nvidiavgpu.nixosModules.nvidia-vgpu
-          ];
+              nvidiavgpu.nixosModules.nvidia-vgpu
+            ];
+          };
+
+          imports = [ (digga.lib.importHosts ./hosts) ];
+          hosts = {
+            nixos-hyperv = { };
+            nixos-bm = { };
+          };
+          importables = rec {
+            profiles = digga.lib.rakeLeaves ./profiles // {
+              users = digga.lib.rakeLeaves ./users;
+            };
+            suites = with profiles; rec {
+              base = [ core users.root ];
+              development = [ users.dev ];
+              daily = [ users.remo ];
+            };
+          };
         };
 
-        imports = [ (digga.lib.importers.hosts ./hosts) ];
-        hosts = {
-          nixos-hyperv = { };
-          nixos-bm = { };
-        };
-        importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./profiles // {
-            users = digga.lib.importers.rakeLeaves ./users;
-          };
-          suites = with profiles; rec {
-            base = [ core users.root ];
-            development = [ users.dev ];
-            daily = [ users.remo ];
-          };
-        };
-      };
-
-      home = {
-        imports = [ (digga.lib.importModules ./users/modules) ];
-        externalModules = [ ];
-        importables = rec {
-          profiles = digga.lib.importers.rakeLeaves ./users/profiles;
-          suites = with profiles; rec {
-            base = [ direnv git ];
-            development = [ vscodium shell xrdp jetbrains ];
+        home = {
+          imports = [ (digga.lib.importModules ./users/modules) ];
+          externalModules = [ ];
+          importables = rec {
+            profiles = digga.lib.rakeLeaves ./users/profiles;
+            suites = with profiles; rec {
+              base = [ direnv git ];
+              development = [ vscodium shell xrdp jetbrains ];
             };
           };
         };
