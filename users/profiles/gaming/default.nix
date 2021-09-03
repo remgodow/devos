@@ -4,5 +4,6 @@
     steam
     lutris
     discord
+    xboxdrv
   ];
 }

@@ -1,6 +1,6 @@
- { config, pkgs, ... }: {
+{ config, pkgs, ... }: {
 
-   fileSystems."/" = {
+  fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
   };
@@ -19,5 +19,5 @@
     { device = "/dev/disk/by-label/swap"; }
   ];
 
- }
+}
 

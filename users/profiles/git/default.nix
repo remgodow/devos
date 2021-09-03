@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  home.packages = [
+    pkgs.gh
+  ];
+
   programs.git = {
     enable = true;
 
@@ -44,6 +48,12 @@
 
       # delete merged branches
       bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d";
+
+      # pull requests
+      prv = "!gh pr view";
+      prc = "!gh pr create";
+      prs = "!gh pr status";
+      prm = "!gh pr merge -d";
     };
   };
 }

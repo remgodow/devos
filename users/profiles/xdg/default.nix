@@ -2,5 +2,5 @@
 {
   xdg = {
     enable = true;
-  }
-    }
+  };
+}

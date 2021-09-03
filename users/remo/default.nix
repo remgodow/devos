@@ -17,8 +17,11 @@
     shell = pkgs.zsh;
   };
 
+  programs.steam.enable = true;
+
   home-manager.users.remo = { suites, ... }: {
     imports = suites.base ++ [
+      ../profiles/xdg
       ../profiles/gaming
       ../profiles/shell
       ../profiles/communication/thunderbird.nix
