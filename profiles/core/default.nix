@@ -125,8 +125,6 @@ in
 
     autoOptimiseStore = true;
 
-    gc.automatic = true;
-
     optimise.automatic = true;
 
     useSandbox = true;

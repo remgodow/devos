@@ -9,6 +9,5 @@
 
   # Configure keymap in X11
   services.xserver.layout = "pl";
-  services.xserver.xkbOptions = "eurosign:e";
 
 }
