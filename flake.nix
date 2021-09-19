@@ -25,12 +25,12 @@
       home.inputs.nixpkgs.follows = "nixos";
 
       darwin.url = "github:LnL7/nix-darwin";
-      darwin.inputs.nixpkgs.follows = "latest";
+      darwin.inputs.nixpkgs.follows = "nixos";
 
       deploy.follows = "digga/deploy";
 
       agenix.url = "github:ryantm/agenix";
-      agenix.inputs.nixpkgs.follows = "latest";
+      agenix.inputs.nixpkgs.follows = "nixos";
 
       flake-compat = {
         url = "github:edolstra/flake-compat";
@@ -38,16 +38,18 @@
       };
 
       nvfetcher.url = "github:berberman/nvfetcher";
-      nvfetcher.inputs.nixpkgs.follows = "latest";
+      nvfetcher.inputs.nixpkgs.follows = "nixos";
       nvfetcher.inputs.flake-compat.follows = "flake-compat";
       nvfetcher.inputs.flake-utils.follows = "digga/flake-utils-plus/flake-utils";
 
       naersk.url = "github:nmattia/naersk";
-      naersk.inputs.nixpkgs.follows = "latest";
+      naersk.inputs.nixpkgs.follows = "nixos";
 
       nixos-hardware.url = "github:nixos/nixos-hardware";
 
       nvidiavgpu.url = "github:remgodow/nixos-nvidia-vgpu/5.10-460.32";
+      nix-ld.url = "github:Mic92/nix-ld";
+      nix-ld.inputs.nixpkgs.follows = "nixos";
 
       # start ANTI CORRUPTION LAYER
       # remove after https://github.com/NixOS/nix/pull/4641
@@ -72,6 +74,8 @@
     , nvidiavgpu
     , nvfetcher
     , deploy
+    , naersk
+    , nix-ld
     , ...
     } @ inputs:
     digga.lib.mkFlake
@@ -89,6 +93,7 @@
               agenix.overlay
               nvfetcher.overlay
               #deploy.overlay
+              naersk.overlay
               ./pkgs/default.nix
             ];
           };
@@ -119,6 +124,7 @@
               agenix.nixosModules.age
               bud.nixosModules.bud
               nvidiavgpu.nixosModules.nvidia-vgpu
+              nix-ld.nixosModules.nix-ld
             ];
           };
 

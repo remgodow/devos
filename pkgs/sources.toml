@@ -2,3 +2,16 @@
 [manix]
 src.git = "https://github.com/mlvzk/manix"
 fetch.github = "mlvzk/manix"
+[freetube]
+src.prefix = "v"
+src.repology = "freetube:aur"
+fetch.url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v$ver-beta/freetube_$ver_amd64.AppImage"
+[looking-glass-client]
+src.github = "gnif/LookingGlass"
+src.use_latest_release = true
+fetch.github = "gnif/LookingGlass"
+git.fetchSubmodules = true
+[starship]
+src.github = "starship/starship"
+src.use_latest_release = true
+fetch.git = "https://github.com/starship/starship"

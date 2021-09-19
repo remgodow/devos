@@ -26,6 +26,7 @@ in
       cachix
       nix-index
       nix-prefetch-scripts
+      nix-autobahn
       dnsutils
       dosfstools
       fd

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
   users.users.remo = {
     uid = 1001;
@@ -8,12 +8,16 @@
 
     extraGroups = [
       "wheel"
-      "docker"
-      "networkmanager"
-      "libvirtd"
-      "qemu-libvirtd"
-      "adbusers"
-    ];
+    ]
+    ++ lib.optional config.networking.networkmanager.enable "networkmanager"
+    ++ lib.optional config.virtualisation.docker.enable "docker"
+    ++ lib.optional config.virtualisation.libvirtd.enable "libvirtd"
+    ++ lib.optional config.virtualisation.libvirtd.enable "qemu-libvirtd"
+    ++ lib.optional config.programs.adb.enable "adbusers"
+    ++ lib.optional config.services.avahi.enable "avahi"
+    ++ lib.optional config.services.printing.enable "lp"
+    ++ lib.optional config.hardware.sane.enable "scanner";
+
     shell = pkgs.zsh;
   };
 
@@ -26,9 +30,15 @@
       ../profiles/shell
       ../profiles/communication/thunderbird.nix
       ../profiles/communication/protonmail.nix
+      ../profiles/communication/nheko.nix
       ../profiles/keepassxc
       ../profiles/entertainment
       ../profiles/office/libreoffice.nix
     ];
+
+    home.packages = [
+      pkgs.helix
+    ];
   };
+
 }

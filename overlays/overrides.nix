@@ -3,18 +3,10 @@ channels: final: prev: {
   __dontExport = true; # overrides clutter up actual creations
 
   inherit (channels.latest)
-    cachix
-    dhall
-    element-desktop
-    rage
-    nixpkgs-fmt
-    qutebrowser
-    signal-desktop
-    freetube
-    lutris
-    starship
-    electron-mail
-    looking-glass-client;
+    helix;
+  #     cachix
+  #     lutris
+  #     proton-caller;
 
   haskellPackages = prev.haskellPackages.override
     (old: {

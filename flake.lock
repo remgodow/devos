@@ -3,7 +3,7 @@
     "agenix": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "nixos"
         ]
       },
       "locked": {
@@ -62,7 +62,7 @@
     "darwin": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "nixos"
         ]
       },
       "locked": {
@@ -221,7 +221,7 @@
     "naersk": {
       "inputs": {
         "nixpkgs": [
-          "latest"
+          "nixos"
         ]
       },
       "locked": {
@@ -235,6 +235,27 @@
       "original": {
         "owner": "nmattia",
         "repo": "naersk",
+        "type": "github"
+      }
+    },
+    "nix-ld": {
+      "inputs": {
+        "nixpkgs": [
+          "nixos"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1631525093,
+        "narHash": "sha256-wIPvR8Cr4B2kqDmbJLndJx/bepf4RwcbezCD7TnPiso=",
+        "owner": "Mic92",
+        "repo": "nix-ld",
+        "rev": "6b7c79223bd1e22c94bc71f4656dcd3da3231e5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-ld",
         "type": "github"
       }
     },
@@ -319,7 +340,7 @@
           "flake-utils"
         ],
         "nixpkgs": [
-          "latest"
+          "nixos"
         ]
       },
       "locked": {
@@ -378,6 +399,7 @@
         "home": "home",
         "latest": "latest",
         "naersk": "naersk",
+        "nix-ld": "nix-ld",
         "nixlib": [
           "digga",
           "nixlib"
@@ -390,6 +412,21 @@
         "nur": "nur",
         "nvfetcher": "nvfetcher",
         "nvidiavgpu": "nvidiavgpu"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1610051610,
+        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     }
   },
