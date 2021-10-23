@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    jetbrains.webstorm
+    webstorm
+    codewithme-guest
+    idea-ultimate
   ];
 
 }

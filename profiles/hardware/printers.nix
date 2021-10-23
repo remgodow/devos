@@ -2,7 +2,7 @@
   services.printing = {
     enable = true;
     startWhenNeeded = true;
-    webInterface = false;
+    webInterface = true;
   };
 
   environment.systemPackages = [
@@ -22,7 +22,7 @@
     brscan4 = {
       enable = true;
       netDevices."DCP-9020CDW" = {
-        ip = "192.168.1.104";
+        ip = "192.168.1.201";
         model = "DCP-9020CDW";
       };
     };

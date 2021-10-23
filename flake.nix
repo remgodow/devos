@@ -67,6 +67,7 @@
     , digga
     , bud
     , nixos
+    , latest
     , home
     , nixos-hardware
     , nur
@@ -94,7 +95,9 @@
               nvfetcher.overlay
               #deploy.overlay
               naersk.overlay
+              ./pkgs/wine.nix
               ./pkgs/default.nix
+              ./pkgs/steam.nix
             ];
           };
           latest = { };
@@ -152,7 +155,7 @@
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
               base = [ direnv git ];
-              development = [ vscodium shell xrdp jetbrains ];
+              development = [ shell xrdp ];
             };
           };
         };

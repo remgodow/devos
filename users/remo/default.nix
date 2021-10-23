@@ -22,6 +22,8 @@
   };
 
   programs.steam.enable = true;
+  #   programs.gamemode.enable = true;
+  #   programs.gamemode.settings.general.inhibit_screensaver = 0;
 
   home-manager.users.remo = { suites, ... }: {
     imports = suites.base ++ [
@@ -34,6 +36,7 @@
       ../profiles/keepassxc
       ../profiles/entertainment
       ../profiles/office/libreoffice.nix
+      ../profiles/webbrowsers/chromium.nix
     ];
 
     home.packages = [

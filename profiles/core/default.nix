@@ -42,6 +42,8 @@ in
       tealdeer
       whois
       file
+      unzip
+      unrar
     ];
 
     shellInit = ''

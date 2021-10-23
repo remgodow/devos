@@ -3,9 +3,11 @@ channels: final: prev: {
   __dontExport = true; # overrides clutter up actual creations
 
   inherit (channels.latest)
+    steam
+    gamemode
     helix;
   #     cachix
-  #     lutris
+  #  lutris;
   #     proton-caller;
 
   haskellPackages = prev.haskellPackages.override

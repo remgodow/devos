@@ -18,11 +18,17 @@
       ../profiles/communication/slack.nix
       ../profiles/communication/thunderbird.nix
       ../profiles/keepassxc
+      ../profiles/webbrowsers/chromium.nix
+      ../profiles/office/libreoffice.nix
+      ../profiles/office/xournalpp.nix
+      ../profiles/development/vscodium.nix
+      ../profiles/development/jetbrains.nix
+      ../profiles/development/js.nix
     ];
 
     home.packages = with pkgs; [
-      ungoogled-chromium
       wireshark
     ];
+
   };
 }

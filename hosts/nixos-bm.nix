@@ -17,6 +17,7 @@
     ../profiles/desktop/plasma.nix
     ../profiles/desktop/pipewire.nix
     ../profiles/desktop/apps.nix
+    ../profiles/desktop/xdg.nix
 
     ../profiles/virtualisation/docker.nix
     ../profiles/virtualisation/qemu.nix
@@ -51,8 +52,8 @@
       ];
     };
 
-  hardware.nvidia.vgpu.enable = true; # Enable NVIDIA KVM vGPU + GRID driver
-  hardware.nvidia.vgpu.unlock.enable = true; # Unlock vGPU functionality on consumer cards using DualCoder/vgpu_unlock project
+  #hardware.nvidia.vgpu.enable = true; # Enable NVIDIA KVM vGPU + GRID driver
+  #hardware.nvidia.vgpu.unlock.enable = true; # Unlock vGPU functionality on consumer cards using DualCoder/vgpu_unlock project
 
   # some more hardware settings
   nix.maxJobs = lib.mkDefault 16;
@@ -73,6 +74,8 @@
     };
 
     supportedFilesystems = [ "ntfs" ];
+
+    kernelPackages = pkgs.linuxPackages_5_13;
   };
 
   # make more out of the ram

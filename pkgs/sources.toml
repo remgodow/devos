@@ -15,3 +15,15 @@ git.fetchSubmodules = true
 src.github = "starship/starship"
 src.use_latest_release = true
 fetch.git = "https://github.com/starship/starship"
+[discord]
+src.manual = "0.0.16"
+fetch.url = "https://dl.discordapp.net/apps/linux/$ver/discord-$ver.tar.gz"
+[webstorm]
+src.repology = "webstorm:chocolatey"
+fetch.url = "https://download.jetbrains.com/webstorm/WebStorm-$ver.tar.gz"
+[idea-ultimate]
+src.repology = "intellij-idea-ultimate:chocolatey"
+fetch.url = "https://download.jetbrains.com/idea/ideaIU-$ver-no-jbr.tar.gz"
+[lutris]
+src.github = "lutris/lutris"
+fetch.github = "lutris/lutris"
